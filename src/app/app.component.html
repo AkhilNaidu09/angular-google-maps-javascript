@@ -1,0 +1,52 @@
+<div class="col">
+	<div class="form-group">
+		<label for="">Mailing Address1 <span class="text-danger">*</span></label>
+		<button class="float-right" (click)="showMap()"><i class="fas fa-map-marker-alt" ></i> View on Map</button>
+		<input type="text" class="form-control" [(ngModel)]="addressDetails.mailingAddress1" placeholder="Mailing Address1">
+              </div>
+		<div class="form-group">
+			<label for="">Mailing Address2</label>
+			<input type="text" [(ngModel)]="addressDetails.mailingAddress2" class="form-control" placeholder="Mailing Address2">
+              </div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label for="">City <span class="text-danger">*</span></label>
+						<input type="text" [(ngModel)]="addressDetails.city"  class="form-control" placeholder="City">
+                  </div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<label for="">State <span class="text-danger">*</span></label>
+							<select [(ngModel)]="addressDetails.state"  class="custom-select" id="">
+                      <option value=""></option><option value="AL">ALABAMA</option><option value="AK">ALASKA</option><option value="AZ">ARIZONA</option><option value="AR">ARKANSAS</option><option value="AE">ARMED FORCES EUROPEAN</option><option value="AP">ARMY POST OFFICE</option><option value="CA">CALIFORNIA</option><option value="CO">COLORADO</option><option value="CT">CONNECTICUT</option><option value="DE">DELAWARE</option><option value="DC">DIST.OF COL.</option><option value="FL">FLORIDA</option><option value="GA">GEORGIA</option><option value="HI">HAWAII</option><option value="ID">IDAHO</option><option value="IL">ILLINOIS</option><option value="IN">INDIANA</option><option value="IA">IOWA</option><option value="KS">KANSAS</option><option value="KY">KENTUCKY</option><option value="LA">LOUISIANA</option><option value="ME">MAINE</option><option value="MD">MARYLAND</option><option value="MA">MASSACHUSETTS</option><option value="MI">MICHIGAN</option><option value="MN">MINNESOTA</option><option value="MS">MISSISSIPPI</option><option value="MO">MISSOURI</option><option value="MT">MONTANA</option><option value="NE">NEBRASKA</option><option value="NV">NEVADA</option><option value="NH">NEW HAMPSHIRE</option><option value="NJ">NEW JERSEY</option><option value="NM">NEW MEXICO</option><option value="NY">NEW YORK</option><option value="NC">NORTH CAROLINA</option><option value="ND">NORTH DAKOTA</option><option value="OH">OHIO</option><option value="OK">OKLAHOMA</option><option value="OR">OREGON</option><option value="PA">PENNSYLVANIA</option><option value="PR">PUERTO RICO</option><option value="RI">RHODE ISLAND</option><option value="SC">SOUTH CAROLINA</option><option value="SD">SOUTH DAKOTA</option><option value="TN">TENNESSEE</option><option value="TX">TEXAS</option><option value="VI">U.S.VIRGIN IS.</option><option value="UT">UTAH</option><option value="VT">VERMONT</option><option value="VA">VIRGINIA</option><option value="WA">WASHINGTON</option><option value="WV">WEST VIRGINIA</option><option value="WI">WISCONSIN</option><option value="WY">WYOMING</option>
+                    </select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label for="">Zip <span class="text-danger">*</span></label>
+							<input type="text" [(ngModel)]="addressDetails.zip1"  class="form-control" placeholder="Zip">
+                  </div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label for="">Zip4</label>
+								<input type="text" [(ngModel)]="addressDetails.zip4"  class="form-control" placeholder="Zip4">
+                  </div>
+							</div>
+						</div>
+
+
+						<div class="row mt-5" [hidden]="!map">
+							<div class="col-md-9 mx-auto">
+								<h2 class="text-left">Google Map</h2>
+								<div class="card mt-3">
+									<div class="card-body">
+										<div #mapRef style="width:100%;height:400px"></div>
+									</div>
+								</div>
+							</div>
+						</div>
