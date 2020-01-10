@@ -2,6 +2,7 @@
 	<div class="form-group">
 		<label for="">Mailing Address1 <span class="text-danger">*</span></label>
 		<button class="float-right" (click)="showMap()"><i class="fas fa-map-marker-alt" ></i> View on Map</button>
+    <button (click)="getLatandLong()" class="btn btn-primary m-2"> Log Geo Points</button>
 		<input type="text" class="form-control" [(ngModel)]="addressDetails.mailingAddress1" placeholder="Mailing Address1">
               </div>
 		<div class="form-group">

@@ -1,4 +1,5 @@
 import { Component,ViewChild,ElementRef} from '@angular/core';
+import * as $ from 'jquery';
 export class GeoMapAddress {
   mailingAddress1: string='';
   mailingAddress2: string='';
@@ -29,16 +30,41 @@ export class AppComponent  {
     this.addressDetails.state ='MS';
     this.addressDetails.zip1 ='39571';
     console.log(this.addressDetails);
+
+  }
+
+
+  getLatandLong(){
+     this.geoAddress = this.addressDetails.mailingAddress1  + ' '+this.addressDetails.city +' '+ this.addressDetails.state + ' '+this.addressDetails.zip1;
+   var map = new window['google'].maps.Map(this.mapElement.nativeElement, {
+    center: {lat: -33.867, lng: 151.195},
+    zoom: 8
+  });
+   var request = {
+    query: this.geoAddress,
+    fields: ['name', 'geometry'],
+  };
+
+  var service = new window['google'].maps.places.PlacesService(map);
+
+  service.findPlaceFromQuery(request, function(results, status) {
+    if (status === window['google'].maps.places.PlacesServiceStatus.OK) {
+     console.clear();
+console.log('laatitude:  ',results[0].geometry.location.lat());
+console.log('logitude:  ',results[0].geometry.location.lng());
+    }
+  });
   }
   
   ngAfterViewInit(){
     this.renderMap();
 
   }
+
   
   showMap() {
    
-    this.geoAddress = this.addressDetails.mailingAddress1  + this.addressDetails.city + this.addressDetails.state + this.addressDetails.zip1;
+      this.geoAddress = this.addressDetails.mailingAddress1  +this.addressDetails.city+ this.addressDetails.state +this.addressDetails.zip1;
     this.locateMap();
      this.map = true;
     console.log(this.addressDetails)
@@ -53,10 +79,11 @@ export class AppComponent  {
     var s = window.document.createElement("script");
     s.id = "google-map-script";
     s.type = "text/javascript";
-    s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBhmuYdiSZmm7JDUkGBAQGNOxXl-NUMVDc&libraries=places&callback=initMap";
+    s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAXMpqhCPUzXk9DF3W9pFzZGv8Pr8bom44&libraries=places&callback=initMap";
       
     window.document.body.appendChild(s);
   }
+
 }
 
 locateMap(){
