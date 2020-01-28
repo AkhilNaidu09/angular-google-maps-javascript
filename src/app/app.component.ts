@@ -37,7 +37,7 @@ export class AppComponent  {
   getLatandLong(){
      this.geoAddress = this.addressDetails.mailingAddress1  + ' '+this.addressDetails.city +' '+ this.addressDetails.state + ' '+this.addressDetails.zip1;
    var map = new window['google'].maps.Map(this.mapElement.nativeElement, {
-    center: {lat: -33.867, lng: 151.195},
+    center: {lat: -26.10987, lng: 28.0598},
     zoom: 8
   });
    var request = {
@@ -88,7 +88,7 @@ console.log('logitude:  ',results[0].geometry.location.lng());
 
 locateMap(){
    var map = new window['google'].maps.Map(this.mapElement.nativeElement, {
-    center: {lat: -33.867, lng: 151.195},
+    center: {lat: -26.10987, lng: 28.058},
     zoom: 8
   });
    var request = {
@@ -107,7 +107,7 @@ locateMap(){
     }
   });
   var marker = new window['google'].maps.Marker({
-    position: {lat: -33.867, lng: 151.195},
+    position: {lat: -26.10987, lng: 28.058},
     map: map,
     title: 'Hello World!',
     draggable: true,
